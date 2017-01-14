@@ -1,0 +1,13 @@
+django==1.10
+pytils
+PyMySQL
+Pillow
+git+git://github.com/mariocesar/sorl-thumbnail@v12.3
+requests
+django-mptt==0.8.6
+django-mptt-admin
+django-annoying
+django-filebrowser
+django-tinymce
+git+https://github.com/ITCase-django/django-tinymce-4
+django-debug-toolbar
