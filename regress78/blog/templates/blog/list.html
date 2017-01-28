@@ -1,0 +1,36 @@
+{% extends 'common/layout.html' %}
+{% load thumbnail %}
+{% load l10n %}
+
+
+{% block main_content %}
+    {% for topic in list %}
+        <div class="bl2 fixed">
+            <div class="bl2-cover">
+                <a href="/blog/topic/{{ topic.id }}/">
+                {% thumbnail topic.pic '720x360' crop='center' as thumb %}
+                    <img src="{{ thumb.url }}" alt="{{ topic.title }}"/>
+                {% endthumbnail %}
+                </a>
+                <div class="bl2-cat">
+                    ROCK & ROLL
+                </div>
+            </div>
+            <div class="bl2-text">
+                <div class="bl2-title">
+                    <h2>
+                        <a href="/blog/topic/{{ topic.id }}/">{{ topic.title }}</a>
+                    </h2>
+                </div>
+                <div>
+                    {{ topic.preview|safe }}
+                </div>
+                <div class="bl2-lvc">
+                    <a href="#" id="getlike" class="info-like" data-post_id="14" title="Like">1</a>
+                    <div class="info-view">{{ topic.hits }}</div>
+                </div>
+                <div class="bl2-date">{{ topic.date_published|localize }}</div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -24,19 +24,31 @@ SECRET_KEY = 'hnpng@_wopuul(-v&3c4g+wfh)5-2nm#43@ge^k%l&cgajc*91'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DJANGO_LOG_LEVEL = DEBUG
+THUMBNAIL_DEBUG = True
+
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
 INSTALLED_APPS = [
+    'tinymce_4',
+    'grappelli',
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
+    'sorl.thumbnail',
+    'pytils',
+    'mptt',
+    'django_mptt_admin',
+    'index',
+    'blog',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -55,7 +67,10 @@ ROOT_URLCONF = 'regress78.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'index/templates',
+            'blog/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -119,3 +134,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = 'volatile/static'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = 'persistent/media'

@@ -1,0 +1,15 @@
+<div id="menu">
+    <div class="menu-row">
+        <div id="wizemenu" class="menu-menu-container">
+            <ul class="megamenu">
+                {% for menu_item in main_menu %}
+                    <li id="menu-item-335" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-42 current_page_item active">
+                        <a href="{{ menu_item.url }}" target="{{ menu_item.target }}">
+                            {{ menu_item.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

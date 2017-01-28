@@ -1,0 +1,19 @@
+{% extends 'common/layout.html' %}
+{% load thumbnail %}
+{% load l10n %}
+
+
+{% block main_content %}
+    <div class="sng-left">
+        <div class="sng-cover">
+            <div class="sng-bg"></div>
+            {% thumbnail topic.pic '774x330' crop='center' as thumb %}
+                <img src="{{ thumb.url }}" alt="{{ topic.title }}"/>
+            {% endthumbnail %}
+            <div class="sng-title">
+                <h1>{{ topic.title }}</h1>
+            </div>
+            {{ topic }}
+        </div>
+    </div>
+{% endblock %}
