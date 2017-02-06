@@ -1,0 +1,21 @@
+<div class="pagination-bottom">
+    <div class="pagination-pos">
+        <div class="pagination">
+            {% if list.number > 1 %}
+                <a class="incative" href="/blog/{{ list.previous_page_number }}/">←</a>
+            {% endif %}
+            {% for p in pagination.page_range %}
+                {% if list.number ==  p %}
+                    <span class="current">{{ p }}</span>
+                {% elif p > list.number and p < pagination_last %}
+                    <a href="/blog/{{ p }}/" class="inactive">{{ p }}</a>
+                {% elif list.number > pagination_shown_last and p > pagination_shown_last %}
+                    <a href="/blog/{{ p }}/" class="inactive">{{ p }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if list.has_next %}
+                <a class="incative" href="/blog/{{ list.next_page_number }}/">→</a>
+            {% endif %}
+        </div>
+    </div>
+</div>

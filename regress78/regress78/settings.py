@@ -120,14 +120,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'ru-RU'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
+
+# Blog configs
+
+BLOG_TOPICS_PER_PAGE = 1
+BLOG_TOPICS_PAGE_SAMPLING_RANGE = 3
 
 
 # Static files (CSS, JavaScript, Images)

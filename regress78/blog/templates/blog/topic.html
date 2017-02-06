@@ -2,7 +2,6 @@
 {% load thumbnail %}
 {% load l10n %}
 
-
 {% block main_content %}
     <div class="sng-left">
         <div class="sng-cover">
@@ -13,7 +12,14 @@
             <div class="sng-title">
                 <h1>{{ topic.title }}</h1>
             </div>
-            {{ topic }}
+            <div class="sng-lvc">
+                <a href="#" id="getlike" class="info-liked" data-post_id="38" title="Unlike">1</a>
+                <div class="info-view">{{ topic.hits }}</div>
+            </div>
+            <div class="sng-date">{{ topic.date_published|localize }}</div>
+        </div>
+        <div id="sng">
+            {{ topic.content|safe }}
         </div>
     </div>
 {% endblock %}

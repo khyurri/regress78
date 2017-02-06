@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^admin/filebrowser/', include(filebrowser_site.urls)),
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^blog/$', BlogList.as_view(), name='blog_list'),
+    url(r'^blog/(?P<page>[0-9]+)/$', BlogList.as_view(), name='blog_list'),
     url(r'^blog/topic/([0-9]+)/$', BlogTopic.as_view(), name='blog_topic'),
 ]
 
