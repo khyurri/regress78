@@ -1,21 +1,29 @@
 {% extends 'common/layout.html' %}
 {% load thumbnail %}
 
-
 {% block main_content %}
-    <div id="media-full">
-        <div class="media-full">
+    <div id="media-left">
+        <div class="media-lr">
             {% for gallery in galleries %}
-                <div class="pv1">
-                    <div class="pv1-cover">
-                        <div class="pv1-bg"></div>
-                        {% thumbnail gallery.photo '360x300' crop='center' as thumb %}
-                            <img src="{{ thumb.url }}" alt="{{ gallery.name }}"/>
-                        {% endthumbnail %}
-                        <div class="pv1-title">
-                            <h2>
-                                <a href="/photo/gallery/{{ gallery.id }}/">{{ gallery.name }}</a>
-                            </h2>
+                <div class="pv2">
+                    <div class="pv2-cover">
+                        <div class="he-wrap he-wize">
+                            {% thumbnail gallery.photo '360x300' crop='center' as thumb %}
+                                <img src="{{ thumb.url }}" alt="{{ gallery.name }}"/>
+                            {% endthumbnail %}
+                            <div class="he-view">
+                                <div class="bgmedia a0" data-animate="zoomIn">
+                                    <a href="/photo/gallery/{{ gallery.id }}/"
+                                       class="pv2-photo a2" data-animate="zoomIn"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pv2-info">
+                            <div class="pv2-title">
+                                <h2>
+                                    <a href="/photo/gallery/{{ gallery.id }}/">{{ gallery.name }}</a>
+                                </h2>
+                            </div><!-- end .pv2-title -->
                         </div>
                     </div>
                 </div>

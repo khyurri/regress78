@@ -10,16 +10,16 @@
         <div class="ev2">
             <div class="ev2-cover">
                 <div class="ev2-bg"></div>
-                {% thumbnail light_item.pic '360x360' crop='center' as thumb %}
-                    <img src="{{ thumb.url }}" alt="{{ light_item.title }}"/>
-                {% endthumbnail %}
+                    {% thumbnail light_item.pic '360x360' crop='center' as thumb %}
+                        <img src="{{ thumb.url }}" alt="{{ light_item.title }}"/>
+                    {% endthumbnail %}
                 <a href="{{ media_path }}{{ light_item.pic }}"
                    class="ev2-zoom" data-rel="prettyPhoto-cover"></a>
             </div>
             <div class="ev2-text">
                 <div class="ev2-title">
                     <h2>
-                        <a href="{{ light_item.url }}">{{ light_item.title }}</a>
+                        <a href="{{ detail_uri }}{{ light_item.id }}/">{{ light_item.title }}</a>
                     </h2>
                 </div>
                 <p>{{ light_item.preview }}</p>

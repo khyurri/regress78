@@ -1,0 +1,26 @@
+{% extends 'common/layout.html' %}
+{% load thumbnail %}
+{% load l10n %}
+
+{% block main_content %}
+    <div id="sng-left">
+        <div id="sng" class="fixed">
+            <div class="mixsng-title">
+                <h1>{{ light_topic.title }}</h1>
+            </div>
+            <div class="mediasng-lv">
+                <div class="info-view">{{ light_topic.hits }}</div>
+            </div>
+            <div class="evsng-cd">
+                <div class="evsng-cover">
+                    {% thumbnail light_topic.pic '360x490' crop='center' as thumb %}
+                        <img src="{{ thumb.url }}" alt="{{ light_topic.title }}"/>
+                    {% endthumbnail %}
+                </div>
+            </div>
+            <div class="evsng-cont">
+                {{ light_topic.content|safe }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

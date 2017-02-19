@@ -68,6 +68,25 @@ class LightList(RegressView):
         context = super().get_context_data(**kwargs)
         data = BlogItem.published_items.list_items(topic_type)
         context.update({
+            "detail_uri": kwargs.get("detail_item_uri"),
             "light_list": data,
         })
+        return render(request, self.template_name, context)
+
+
+class LightItem(RegressView):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.template_name = "blog/light_item.html"
+
+    def get(self, request, **kwargs):
+        context = self.get_context_data(**kwargs)
+        topic_type = kwargs.get("topic_type", 0)
+        blog_item = BlogItem.published_items.by_id(
+            kwargs.get("id"), topic_type=topic_type)
+        context.update({
+            "light_topic": blog_item.get()
+        })
+        BlogItem.published_items.increment_view(blog_item)
         return render(request, self.template_name, context)
