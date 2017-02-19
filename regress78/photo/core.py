@@ -14,5 +14,5 @@ class ListManager(models.Manager):
 
         return self.get_queryset().filter(**kwargs).order_by("-date_published")
 
-    def by_id(self, topic_id):
-        return self.get_queryset().filter(published=True, id=topic_id)
+    def by_id(self, item_id):
+        return self.get_queryset().filter(published=True, id=item_id)

@@ -1,0 +1,26 @@
+{% extends 'common/layout.html' %}
+{% load thumbnail %}
+
+{% block main_content %}
+    <div id="mediasng">
+        <div class="mediasng-title">
+            <h1>{{ gallery.name }}</h1>
+        </div>
+        <div class="mediasng-info"></div>
+        <div class="phsng-col fixed">
+            {% for photo in photos %}
+                <div class="phsng-photo">
+                    <a href="{{ media_path }}{{ photo.photo }}"
+                       class="photo-preview"
+                       data-rel="prettyPhoto[pp_gallery]">
+                        {% thumbnail photo.photo '360x360' crop='center' as thumb %}
+                        <img
+                             src="{{ thumb.url }}"
+                             alt="{{ photo.name }}">
+                        {% endthumbnail %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
