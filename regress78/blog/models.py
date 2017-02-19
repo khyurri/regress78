@@ -97,6 +97,16 @@ class BlogItem(models.Model):
                                 related_name="%(app_label)s_creator",
                                 default=None)
 
+    topic_type = models.IntegerField(
+        verbose_name='тип записи',
+        choices=(
+            (0, "Топик в блоге"),
+            (1, "Событие"),
+            (2, "Запись эфира")
+        ),
+        default=0
+    )
+
     def __str__(self):
         return self.title
 

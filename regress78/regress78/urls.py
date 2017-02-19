@@ -20,6 +20,7 @@ from index.views import IndexView
 from blog.views import (
     BlogList,
     BlogTopic,
+    LightList,
 )
 from photo.views import (
     PhotoList,
@@ -38,6 +39,7 @@ urlpatterns = [
     url(r'^blog/topic/([0-9]+)/$', BlogTopic.as_view(), name='blog_topic'),
     url(r'^photo/$', PhotoList.as_view(), name='photo_list'),
     url(r'^photo/gallery/([0-9]+)/$', PhotoGallery.as_view(), name='photo_gallery'),
+    url(r'^events/$', LightList.as_view(), {"name": 'event_list', "topic_type": 1}),
 ]
 
 if settings.DEBUG:

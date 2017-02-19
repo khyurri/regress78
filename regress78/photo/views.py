@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from commons.views import RegressView
 from photo.models import PhotoAlbumTree
-from django.conf import settings
 
 
 class PhotoList(RegressView):
@@ -33,6 +32,5 @@ class PhotoGallery(RegressView):
         context.update({
             "gallery": gallery.get(),
             "photos": photos,
-            "media_path": settings.MEDIA_URL
         })
         return render(request, self.template_name, context)

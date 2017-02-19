@@ -55,3 +55,19 @@ class BlogTopic(RegressView):
 
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
+
+
+class LightList(RegressView):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.template_name = "blog/light_list.html"
+
+    def get(self, request, *args, **kwargs):
+        topic_type = kwargs.get("topic_type", 0)
+        context = super().get_context_data(**kwargs)
+        data = BlogItem.published_items.list_items(topic_type)
+        context.update({
+            "light_list": data,
+        })
+        return render(request, self.template_name, context)
