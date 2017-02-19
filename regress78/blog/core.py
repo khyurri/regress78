@@ -17,7 +17,7 @@ def paged(prepared_data, c_page):
 class ListManager(models.Manager):
 
     def list_items(self):
-        return self.get_queryset().filter(published=True)
+        return self.get_queryset().filter(published=True).order_by("-date_published")
 
     def by_id(self, topic_id):
         return self.get_queryset().filter(published=True, id=topic_id)

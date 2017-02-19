@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_mptt_admin',
     'index',
     'blog',
+    'photo',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -127,8 +128,8 @@ USE_TZ = True
 
 # Blog configs
 
-BLOG_TOPICS_PER_PAGE = 1
-BLOG_TOPICS_PAGE_SAMPLING_RANGE = 3
+BLOG_TOPICS_PER_PAGE = 10
+BLOG_TOPICS_PAGE_SAMPLING_RANGE = 10
 
 
 # Static files (CSS, JavaScript, Images)

@@ -21,6 +21,9 @@ from blog.views import (
     BlogList,
     BlogTopic,
 )
+from photo.views import (
+    PhotoList,
+)
 from django.conf import settings
 from django import views
 
@@ -32,6 +35,7 @@ urlpatterns = [
     url(r'^blog/$', BlogList.as_view(), name='blog_list'),
     url(r'^blog/(?P<page>[0-9]+)/$', BlogList.as_view(), name='blog_list'),
     url(r'^blog/topic/([0-9]+)/$', BlogTopic.as_view(), name='blog_topic'),
+    url(r'^photo/$', PhotoList.as_view(), name='photo_list')
 ]
 
 if settings.DEBUG:

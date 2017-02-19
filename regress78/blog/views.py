@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from commons.views import RegressView
 from blog.models import BlogItem
-from django.shortcuts import render
+from django.shortcuts import (
+    render,
+    redirect
+)
 from blog.core import paged
 from django.conf import settings
 
@@ -14,8 +17,13 @@ class BlogList(RegressView):
 
     def get(self, request, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        data, pagination = paged(BlogItem.published_items.list_items(),
-                                 kwargs.get("page", 1))
+        page = kwargs.get("page", None)
+        if page is "1":
+            return redirect("/blog/")
+        elif page is None:
+            page = 1
+
+        data, pagination = paged(BlogItem.published_items.list_items(), page)
         context.update({
             "list": data,
             "pagination": pagination,

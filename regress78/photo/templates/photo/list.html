@@ -1,0 +1,25 @@
+{% extends 'common/layout.html' %}
+{% load thumbnail %}
+
+
+{% block main_content %}
+    <div id="media-full">
+        <div class="media-full">
+            {% for gallery in galleries %}
+                <div class="pv1">
+                    <div class="pv1-cover">
+                        <div class="pv1-bg"></div>
+                        {% thumbnail gallery.photo '360x300' crop='center' as thumb %}
+                            <img src="{{ thumb.url }}" alt="{{ gallery.name }}"/>
+                        {% endthumbnail %}
+                        <div class="pv1-title">
+                            <h2>
+                                <a href="/photo/gallery/{{ gallery.id }}/">{{ gallery.name }}</a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
