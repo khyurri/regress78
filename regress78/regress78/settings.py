@@ -28,7 +28,7 @@ DJANGO_LOG_LEVEL = DEBUG
 THUMBNAIL_DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -136,9 +136,7 @@ BLOG_TOPICS_PAGE_SAMPLING_RANGE = 10
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/'
 
-STATIC_ROOT = 'volatile/static'
-
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = 'persistent/media'
+STATIC_ROOT = ''
+MEDIA_ROOT = ''

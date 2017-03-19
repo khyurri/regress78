@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU">
 <head>
@@ -28,36 +28,36 @@
             padding: 0 !important;
         }
     </style>
-    <link rel='stylesheet' id='responsive-menu-css' href='http://master.regress78.com/wp-content/plugins/responsive-menu-data/css/responsive-menu-1.css?ver=4.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='style-css' href='{% static '/blog/css/style.css' %}' type='text/css' media='all' />
-    <link rel='stylesheet' id='options-css' href='{% static '/blog/css/css_options.css' %}' type='text/css' media='all' />
-    <link rel='stylesheet' id='prettyPhoto-css' href='{% static '/blog/css/prettyPhoto.css' %}' type='text/css' media='all' />
-    <link rel='stylesheet' id='slider-css' href='{% static '/blog/css/slider.css' %}' type='text/css' media='all' />
-    <link rel='stylesheet' id='shortcodes-css' href='{% static '/blog/css/shortcodes.css' %}' type='text/css' media='all' />
-    <link rel='stylesheet' id='royal-css' href='{% static '/blog/css/royal.css' %}' type='text/css' media='all' />
-    <link rel='stylesheet' id='hoverex-css' href='{% static '/blog/css/hoverex.css' %}' type='text/css' media='all' />
-    <link rel='stylesheet' id='player-css' href='{% static '/blog/css/player.css' %}' type='text/css' media='all' />
-    <link rel='stylesheet' id='woocommerce-css' href='{% static '/blog/css/woocommerce.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='responsive-menu-css' href='{% static 'blog/css/responsive-menu-1.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='style-css' href='{% static 'blog/css/style.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='options-css' href='{% static 'blog/css/css_options.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='prettyPhoto-css' href='{% static 'blog/css/prettyPhoto.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='slider-css' href='{% static 'blog/css/slider.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='shortcodes-css' href='{% static 'blog/css/shortcodes.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='royal-css' href='{% static 'blog/css/royal.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='hoverex-css' href='{% static 'blog/css/hoverex.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='player-css' href='{% static 'blog/css/player.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-css' href='{% static 'blog/css/woocommerce.css' %}' type='text/css' media='all' />
     <link rel='stylesheet' id='fontpri-css' href='http://fonts.googleapis.com/css?family=Open+Sans%3A400%2C700%2C900%2C300&#038;ver=4.6.2' type='text/css' media='all' />
     <link rel='stylesheet' id='fontsec-css' href='http://fonts.googleapis.com/css?family=Titillium+Web%3A400%2C700%2C900%2C300&#038;ver=4.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='responsive-css' href='{% static '/blog/css/responsive.css' %}' type='text/css' media='all' />
-    <link rel='stylesheet' id='dark-css' href='{% static '/blog/css/dark.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='responsive-css' href='{% static 'blog/css/responsive.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' id='dark-css' href='{% static 'blog/css/dark.css' %}' type='text/css' media='all' />
 
     <script type='text/javascript'>
         var aws_data = {"rootUrl":"http:\/\/master.regress78.com\/","rootTheme":"http:\/\/master.regress78.com\/wp-content\/themes\/beaton\/","loader":""};
     </script>
-    <script type='text/javascript' src='http://master.regress78.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
-    <script type='text/javascript' src='http://master.regress78.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-    <script type='text/javascript' src='http://master.regress78.com/wp-content/themes/beaton/js/soundmanager2.js?ver=4.6.2'></script>
-    <script type='text/javascript' src='http://master.regress78.com/wp-content/themes/beaton/js/jquery.history.js?ver=4.6.2'></script>
-    <script type='text/javascript' src='http://master.regress78.com/wp-content/themes/beaton/js/ajax.js?ver=4.6.2'></script>
+    <script type='text/javascript' src='{% static 'blog/js/lib/jquery.js' %}'></script>
+    <script type='text/javascript' src='{% static 'blog/js/lib/jquery-migrate.min.js' %}'></script>
+    <script type='text/javascript' src='{% static 'blog/js/lib/soundmanager.js' %}'></script>
+    <script type='text/javascript' src='{% static 'blog/js/lib/jquery-history.js' %}'></script>
+    <script type='text/javascript' src='{% static 'blog/js/lib/ajax.js' %}'></script>
 </head>
 <body class="home page page-id-42 page-template-default responsive-menu-slide-left">
     <div id="header">
         <div class="header-row fixed">
             <div id="logo">
                 <a href="/">
-                    <img src="{% static '/blog/images/logo_black.png'%}"
+                    <img src="{% static 'blog/images/logo_black.png'%}"
                          salt="Regress78 logo">
                 </a>
             </div>
@@ -77,7 +77,7 @@
     </div>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
-            $.backstretch("{% static '/blog/images/background.png' %}");
+            $.backstretch("{% static 'blog/images/background.png' %}");
         });
     </script>
     <script type='text/javascript'>

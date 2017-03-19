@@ -3,6 +3,7 @@
         <div class="pagination">
             {% if list.number > 1 %}
                 <a class="incative" href="/blog/{{ list.previous_page_number }}/">←</a>
+                <a class="incative" href="/blog/">в начало</a>
             {% endif %}
             {% for p in pagination.page_range %}
                 {% if list.number ==  p %}
