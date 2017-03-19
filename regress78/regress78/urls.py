@@ -1,4 +1,5 @@
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
 from filebrowser.sites import site as filebrowser_site
 from index.views import IndexView
@@ -13,7 +14,7 @@ from photo.views import (
     PhotoGallery,
 )
 from django.conf import settings
-from django import views
+from records.views import RecordView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,10 +31,11 @@ urlpatterns = [
                                             "detail_item_uri": "/event/date/"}),
     url(r'^event/date/(?P<id>[0-9]+)/', LightItem.as_view(), {"name": 'event_item',
                                                               "topic_type": 1}),
+    url(r'^records/$', RecordView.as_view())
 ]
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    ]
+        url(r'^__debug__/', include(debug_toolbar.urls))
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,3 +1,9 @@
 from django.contrib import admin
+from records.models import Records
 
-# Register your models here.
+
+class RecordsAdmin(admin.ModelAdmin):
+    list_display = ("record_url", "pic", "title", "published",)
+    filter_horizontal = ("dj", "tag",)
+
+admin.site.register(Records, RecordsAdmin)

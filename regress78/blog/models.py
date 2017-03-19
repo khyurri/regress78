@@ -102,8 +102,7 @@ class BlogItem(models.Model):
         verbose_name='тип записи',
         choices=(
             (0, "Топик в блоге"),
-            (1, "Событие"),
-            (2, "Запись эфира")
+            (1, "Событие")
         ),
         default=0
     )

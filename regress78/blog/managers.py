@@ -4,9 +4,9 @@ from django.db.models import F
 
 class ListManager(models.Manager):
 
-    def list_items(self, topic_type=0):
+    def list_items(self, **kwargs):
         return self.get_queryset().filter(published=True,
-                                          topic_type=topic_type).order_by("-date_published")
+                                          **kwargs).order_by("-date_published")
 
     def by_id(self, topic_id, topic_type=0):
         return self.get_queryset().filter(published=True,

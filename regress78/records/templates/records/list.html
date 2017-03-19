@@ -1,0 +1,10 @@
+{% extends 'common/layout.html' %}
+{% load thumbnail %}
+{% load l10n %}
+
+{% block main_content %}
+    {{ list }}
+    {% for topic in list.object_list %}
+        1
+    {% endfor %}
+{% endblock %}
