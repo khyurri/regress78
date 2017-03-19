@@ -1,7 +1,7 @@
 from django.db import models
 from commons.core import UploadTo
 from tinymce_4.fields import TinyMCEModelField
-from blog.core import (
+from blog.managers import (
     ListManager
 )
 
@@ -14,6 +14,7 @@ from mptt.models import (
 class MenuItem(MPTTModel):
     name = models.CharField('название', max_length=255)
     url = models.CharField('URL', max_length=255)
+    order = models.IntegerField('сортировка', default=10)
     target = models.CharField(
         'аттрибут target',
         max_length=255,

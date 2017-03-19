@@ -1,7 +1,10 @@
-from django.db import models
-from django.db.models import F
 from django.core.paginator import Paginator
 from django.conf import settings
+from blog.models import TopMenu
+
+
+def fetch_menu():
+    return TopMenu.objects.filter(parent__isnull=True).order_by('order')
 
 
 def paged(prepared_data, c_page):
@@ -13,18 +16,3 @@ def paged(prepared_data, c_page):
     p = Paginator(prepared_data, settings.BLOG_TOPICS_PER_PAGE)
     return p.page(c_page), p
 
-
-class ListManager(models.Manager):
-
-    def list_items(self, topic_type=0):
-        return self.get_queryset().filter(published=True,
-                                          topic_type=topic_type).order_by("-date_published")
-
-    def by_id(self, topic_id, topic_type=0):
-        return self.get_queryset().filter(published=True,
-                                          id=topic_id,
-                                          topic_type=topic_type)
-
-    @staticmethod
-    def increment_view(blog_item):
-        blog_item.update(hits=F('hits') + 1)

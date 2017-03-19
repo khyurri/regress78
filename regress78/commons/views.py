@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from blog.models import TopMenu
+from blog.core import fetch_menu
 from django.conf import settings
 
 
@@ -9,7 +9,7 @@ class RegressView(TemplateView):
         context = super().get_context_data(**kwargs)
         context.update({
             'title': "Regress78",
-            'main_menu': TopMenu.objects.filter(parent__isnull=True),
+            'main_menu': fetch_menu(),
             "media_path": settings.MEDIA_URL
         })
         return context
