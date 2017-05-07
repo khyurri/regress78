@@ -1,5 +1,8 @@
 from django.views.generic import TemplateView
-from blog.core import fetch_menu
+from blog.core import (
+    fetch_menu,
+    fetch_adv,
+)
 from django.conf import settings
 
 
@@ -16,6 +19,7 @@ class RegressView(TemplateView):
         context.update({
             'title': "Regress78",
             'main_menu': fetch_menu(),
-            "media_path": settings.MEDIA_URL
+            'adv': fetch_adv(),
+            'media_path': settings.MEDIA_URL,
         })
         return context

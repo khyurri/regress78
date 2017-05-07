@@ -1,10 +1,17 @@
 from django.core.paginator import Paginator
 from django.conf import settings
-from blog.models import TopMenu
+from blog.models import (
+    TopMenu,
+    Adv,
+)
 
 
 def fetch_menu():
     return TopMenu.objects.filter(parent__isnull=True).order_by('order')
+
+
+def fetch_adv():
+    return Adv.list_manager.list_items()
 
 
 def paged(prepared_data, c_page):

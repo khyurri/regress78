@@ -40,7 +40,8 @@ class AdvAdmin(admin.ModelAdmin):
         'event_location',
         'adv_position',
         'pic',
-        'published'
+        'published',
+        'date_published',
     )
 
 admin.site.register(TopMenu, MenuItemAdmin)

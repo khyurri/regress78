@@ -138,9 +138,11 @@ class Adv(models.Model):
         default=0
     )
 
+    date_published = models.DateTimeField('дата публикации', default=None, null=True)
     published = models.BooleanField(verbose_name='опубликован', default=False)
-
     adv_order = models.IntegerField(default=500, verbose_name='сортировка')
+
+    link = models.CharField('ссылка', default=None, null=True, max_length=32)
 
     class Meta:
         verbose_name = 'баннер'
