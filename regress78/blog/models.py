@@ -77,7 +77,6 @@ class Tag(models.Model):
 
 class BlogItem(models.Model):
 
-    # Managers
     published_items = ListManager()
 
     title = models.CharField('название', max_length=255)
@@ -113,3 +112,36 @@ class BlogItem(models.Model):
     class Meta:
         verbose_name = 'топик'
         verbose_name_plural = 'топики'
+
+
+class Adv(models.Model):
+
+    list_manager = ListManager()
+
+    pic = models.ImageField(
+        'изображение',
+        upload_to=UploadTo('adv'),
+        null=True,
+        blank=True
+    )
+
+    event_date = models.DateTimeField('дата события')
+    event_week_day = models.CharField('день недели', max_length=32)
+    event_location = models.CharField('место события', max_length=32)
+
+    adv_position = models.IntegerField(
+        verbose_name='позиция баннера',
+        choices=(
+            (0, "в шапке"),
+            (1, "в сайдбаре")
+        ),
+        default=0
+    )
+
+    published = models.BooleanField(verbose_name='опубликован', default=False)
+
+    adv_order = models.IntegerField(default=500, verbose_name='сортировка')
+
+    class Meta:
+        verbose_name = 'баннер'
+        verbose_name_plural = 'баннеры'

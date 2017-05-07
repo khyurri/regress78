@@ -5,6 +5,7 @@ from blog.models import (
     Author,
     Tag,
     BlogItem,
+    Adv,
 )
 
 
@@ -31,7 +32,19 @@ class BlogItemAdmin(admin.ModelAdmin):
         'creator'
     )
 
+
+class AdvAdmin(admin.ModelAdmin):
+    list_display = (
+        'event_date',
+        'event_week_day',
+        'event_location',
+        'adv_position',
+        'pic',
+        'published'
+    )
+
 admin.site.register(TopMenu, MenuItemAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(BlogItem, BlogItemAdmin)
+admin.site.register(Adv, AdvAdmin)
