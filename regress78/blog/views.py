@@ -64,7 +64,7 @@ class LightList(RegressView):
     def get(self, request, *args, **kwargs):
         topic_type = kwargs.get("topic_type", 0)
         context = super().get_context_data(**kwargs)
-        data = BlogItem.published_items.list_items(topic_type)
+        data = BlogItem.published_items.list_items(topic_type=topic_type)
         context.update({
             "detail_uri": kwargs.get("detail_item_uri"),
             "light_list": data,

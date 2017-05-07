@@ -3,8 +3,7 @@
 {% load l10n %}
 
 {% block main_content %}
-    {{ list }}
     {% for topic in list.object_list %}
-        1
+        {{ topic }}
     {% endfor %}
 {% endblock %}

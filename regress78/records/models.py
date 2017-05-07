@@ -13,11 +13,13 @@ class Records(models.Model):
 
     record_url = models.CharField(max_length=1024,
                                   null=False,
-                                  verbose_name="Ссылка на запись")
+                                  verbose_name="ссылка на запись")
     title = models.CharField(max_length=1024,
                              verbose_name="название")
 
-    published = models.BooleanField(default=False)
+    published = models.BooleanField(default=False,
+                                    verbose_name="активен")
+    date_published = models.DateTimeField(auto_now=True)
 
     pic = models.ImageField(
         'обложка',
