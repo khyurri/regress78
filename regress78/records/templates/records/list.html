@@ -3,7 +3,12 @@
 {% load l10n %}
 
 {% block main_content %}
-    {% for topic in list.object_list %}
-        {{ topic }}
-    {% endfor %}
+    <div class="page-title">
+        <h1 class="blog">Записи эфиров</h1>
+    </div>
+    <div class="blog-left">
+        {% for topic in list.object_list %}
+            {{ topic }}
+        {% endfor %}
+    </div>
 {% endblock %}
