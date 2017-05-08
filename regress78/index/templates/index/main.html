@@ -28,5 +28,15 @@
 </div>
 {% endblock %}
 {% block main_content %}
-
+    <div class="home-fixed">
+        <div id="home-left">
+            <h3 class="sh-title">Послендие посты</h3>
+            <h3 class="sh-title2">в блоге</h3>
+            <div class="sh-media3 fixed">
+                {% for topic in list %}
+                    {% include "blog/_blog_item.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

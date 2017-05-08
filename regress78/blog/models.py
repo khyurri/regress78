@@ -106,6 +106,9 @@ class BlogItem(models.Model):
         default=0
     )
 
+    stick_on_main = models.BooleanField(verbose_name="закреплен на главной",
+                                        default=False)
+
     def __str__(self):
         return self.title
 
