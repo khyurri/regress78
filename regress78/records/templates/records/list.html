@@ -1,5 +1,6 @@
 {% extends 'common/inner_layout.html' %}
 {% load thumbnail %}
+{% load nbsp %}
 {% load l10n %}
 
 {% block main_content %}
@@ -7,8 +8,33 @@
         <h1 class="blog">Записи эфиров</h1>
     </div>
     <div class="blog-left">
-        {% for topic in list.object_list %}
-            {{ topic }}
-        {% endfor %}
+        <div class="mix">
+            {% for topic in list.object_list %}
+                <div class="mix-cover">
+                    <div class="mix-bg"></div>
+                    {% thumbnail topic.pic '200x120' crop='center' as thumb %}
+                        <img src="{{ thumb.url }}" alt="Obsession Ibiza Global Radio Mixtape Summer 2015" />
+                    {% endthumbnail %}
+                    <a target="_blank"
+                       href="{{ topic.record_url }}" class="fap-single-track mix-play no-ajax"></a>
+                    <!-- {{ topic }} -->
+                </div>
+                <div class="mix-title">
+                    <h2>
+                        <a href="/record/{{ topic.id }}/">
+                            {{ topic.title }}
+                        </a>
+                    </h2>
+                    <span>{{topic.record_date|date:"d M Y"|nbsp}}</span>
+                </div>
+                <div class="mix-info">
+                    {% for dj in topic.dj.all %}
+                        <div class="mix-dj">{{ dj }}</div>
+                        <div class="mix-genre">&nbsp;</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            {% include "blog/_pagination.html" %}
+        </div>
     </div>
 {% endblock %}

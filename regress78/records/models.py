@@ -21,6 +21,8 @@ class Records(models.Model):
                                     verbose_name="активен")
     date_published = models.DateTimeField(auto_now=True)
 
+    record_date = models.DateTimeField(default="2017-01-01", verbose_name="дата эфира")
+
     pic = models.ImageField(
         'обложка',
         upload_to=UploadTo('records'),
@@ -30,6 +32,7 @@ class Records(models.Model):
     dj = models.ManyToManyField(Author,
                                 verbose_name="DJ",
                                 default=None)
+
     tag = models.ManyToManyField(Tag,
                                  verbose_name="теги")
 

@@ -14,7 +14,7 @@ class RecordView(RegressView):
         context = super().get_context_data(**kwargs)
         page = self.c_page(**kwargs)
         if page is "1":
-            return redirect("/blog/")
+            return redirect("/records/")
         data, pagination = paged(Records.published_items.list_items(), page)
         context.update({
             "list": data,
