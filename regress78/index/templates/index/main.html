@@ -1,19 +1,28 @@
 {% extends 'common/index_layout.html' %}
+{% load thumbnail %}
 {% block mainpage_slider %}
     <div id="slider">
         <div id="slider-full" class="slider-boxed">
             <ul>
-                <li data-transition="random" data-masterspeed="1500" data-delay="10000" data-thumb="http://beaton.wizedesign.com/radio/wp-content/uploads/2015/05/enter-1-1300x580.jpg">
-                    <img src="http://beaton.wizedesign.com/radio/wp-content/uploads/2015/05/enter-1-1300x580.jpg" alt="De Montreal’s Beach Party The Summer" data-kenburns="on" data-duration="15000" data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100">
-                    <div class="sld-bg"></div>
-                    <div class="tp-caption" data-x="20" data-speed="1100" data-start="1500" data-easing="Linear.easeNone" data-endspeed="500" data-endeasing="Power4.easeIn" style="z-index:3; max-width:350px; white-space: normal !important;">
-                        <div class="sld-full">
-                            <div class="sld-full-title">De Montreal’s Beach Party The Summer</div>
-                            <div class="sld-full-desc">most amazing beach party of 2015 was last night</div>
-                            <div class="sld-full-date">Thursday, 11 June 2015</div>
-                        </div>
-                    </div>
-                </li>
+                {% for banner in adv %}
+                    {% if banner.adv_position == 1 %}
+                        {% thumbnail banner.pic '1300x580' crop='center' as thumb %}
+                            <li data-transition="random" data-masterspeed="1500" data-delay="10000"
+                                data-thumb="{{ thumb.url }}">
+                                <img src="{{ thumb.url }}" alt="{{ adv.title }}"
+                                     data-kenburns="on" data-duration="15000" data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100">
+                                <div class="sld-bg"></div>
+                                <div class="tp-caption" data-x="20" data-speed="1100" data-start="1500" data-easing="Linear.easeNone" data-endspeed="500" data-endeasing="Power4.easeIn" style="z-index:3; max-width:350px; white-space: normal !important;">
+                                    <div class="sld-full">
+                                        <div class="sld-full-title">{{ banner.title }}</div>
+                                        <div class="sld-full-desc">{{ banner.description }}</div>
+                                        <div class="sld-full-date">{{ banner.additional }}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endthumbnail %}
+                    {% endif %}
+                {% endfor %}
             </ul>
         </div>
 </div>

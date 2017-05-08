@@ -70,9 +70,9 @@
                             {% thumbnail banner.pic '203x110' crop='center' as thumb %}
                                 <img src="{{ thumb.url }}"/>
                             {% endthumbnail %}
-                            <div class="evhead-date">{{ banner.event_date | date:"d M" }}</div>
-                            <div class="evhead-week">{{ banner.event_week_day }}</div>
-                            <div class="evhead-loc"><span>{{ banner.event_location }}</span></div>
+                            <div class="evhead-date">{{ banner.description }}</div>
+                            <div class="evhead-week">{{ banner.additional }}</div>
+                            <div class="evhead-loc"><span>{{ banner.title }}</span></div>
                         </a>
                     </div>
                 {% endif %}
