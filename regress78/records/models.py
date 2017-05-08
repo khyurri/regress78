@@ -36,6 +36,9 @@ class Records(models.Model):
     tag = models.ManyToManyField(Tag,
                                  verbose_name="теги")
 
+    stick_on_main = models.BooleanField(verbose_name="закреплен на главной",
+                                        default=False)
+
     class Meta:
         verbose_name = "Запись эфира"
         verbose_name_plural = "Записи эфиров"

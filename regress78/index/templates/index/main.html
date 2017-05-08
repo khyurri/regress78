@@ -37,6 +37,15 @@
                     {% include "blog/_blog_item.html" %}
                 {% endfor %}
             </div>
+            <h3 class="sh-title">Новые записи</h3>
+            <h3 class="sh-title2">эфиров</h3>
+            <div class="sh-media3 fixed">
+                {% for topic in records %}
+                    <div class="mix">
+                        {% include "records/_record_item.html" %}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

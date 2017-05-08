@@ -9,7 +9,8 @@ class RecordsAdmin(admin.ModelAdmin):
         "title",
         "published",
         "date_published",
-        "record_date",)
+        "record_date",
+        "stick_on_main",)
     filter_horizontal = ("dj", "tag",)
 
 admin.site.register(Records, RecordsAdmin)

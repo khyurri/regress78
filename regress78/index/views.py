@@ -1,5 +1,6 @@
 from commons.views import RegressView
 from blog.models import BlogItem
+from records.models import Records
 from django.shortcuts import render
 
 
@@ -11,9 +12,11 @@ class IndexView(RegressView):
 
     def get(self, request, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        items_on_main = BlogItem.published_items.list_items(stick_on_main=True,
-                                                            topic_type=0,)
+        blog_items = BlogItem.published_items.list_items(stick_on_main=True,
+                                                         topic_type=0)
+        records = Records.published_items.list_items(stick_on_main=True)
         context.update({
-            "list": items_on_main,
+            "list": blog_items,
+            "records": records,
         })
         return render(request, self.template_name, context)
