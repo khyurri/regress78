@@ -63,26 +63,26 @@
             </div>
             <div id="evhead">
             {% for banner in adv %}
-                <div class="evhead-cont">
-                    <a href="{{ banner.link }}">
-                        <div class="evhead-bg"></div>
-                        {% thumbnail banner.pic '203x110' crop='center' as thumb %}
-                            <img src="{{ thumb.url }}"/>
-                        {% endthumbnail %}
-                        <div class="evhead-date">{{ banner.event_date | date:"d M" }}</div>
-                        <div class="evhead-week">{{ banner.event_week_day }}</div>
-                        <div class="evhead-loc"><span>{{ banner.event_location }}</span></div>
-                    </a>
-                </div>
+                {% if banner.adv_position == 0 %}
+                    <div class="evhead-cont">
+                        <a href="{{ banner.link }}">
+                            <div class="evhead-bg"></div>
+                            {% thumbnail banner.pic '203x110' crop='center' as thumb %}
+                                <img src="{{ thumb.url }}"/>
+                            {% endthumbnail %}
+                            <div class="evhead-date">{{ banner.event_date | date:"d M" }}</div>
+                            <div class="evhead-week">{{ banner.event_week_day }}</div>
+                            <div class="evhead-loc"><span>{{ banner.event_location }}</span></div>
+                        </a>
+                    </div>
+                {% endif %}
             {% endfor %}
             </div>
         </div>
         {% include "common/top_menu.html" %}
     </div>
     <div id="contback">
-        <div id="wrap" class="fixed">
-            {% block main_content %}{% endblock %}
-        </div>
+        {% block layout_content %}{% endblock %}
     </div>
     <div id="footer-bottom">
         <div class="footer-copyright">

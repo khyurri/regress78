@@ -1,41 +1,23 @@
-{% extends 'common/layout.html' %}
-
-{% block main_content %}
+{% extends 'common/index_layout.html' %}
+{% block mainpage_slider %}
     <div id="slider">
-        <div class="slider-boxed" style="overflow: visible;">
-            <div id="slider-left">
-                <ul>
-                    <li data-transition="fade" data-link="http://master.regress78.com/?p=14"	data-masterspeed="1500" data-delay="10000">
-                        <img src="http://master.regress78.com/wp-content/uploads/2016/10/jkc60cBJnfg.jpg" alt="slide 1" data-kenburns="on" data-duration="15000" data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100">
-                        <div class="sld-bg"></div>
-                        <div class="tp-caption" data-speed="1100" data-start="1500" data-easing="Linear.easeNone" data-endspeed="500" data-endeasing="Power4.easeIn" style="z-index:3;">
-                            <div class="sld-left">
-                                <div class="sld-title">slide 1</div>
-                                <div class="sld-desc">slide 1</div>
-                                <div class="sld-date">Суббота, 15 Октябрь 2016</div>
-                            </div><!-- end .sld-left -->
-                        </div><!-- end .tp-caption -->
-                    </li><!-- end li.slide -->
-                </ul>
-            </div><!-- end #slider-big -->
-        </div><!-- end .slider-boxed -->
+        <div id="slider-full" class="slider-boxed">
+            <ul>
+                <li data-transition="random" data-masterspeed="1500" data-delay="10000" data-thumb="http://beaton.wizedesign.com/radio/wp-content/uploads/2015/05/enter-1-1300x580.jpg">
+                    <img src="http://beaton.wizedesign.com/radio/wp-content/uploads/2015/05/enter-1-1300x580.jpg" alt="De Montreal’s Beach Party The Summer" data-kenburns="on" data-duration="15000" data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100">
+                    <div class="sld-bg"></div>
+                    <div class="tp-caption" data-x="20" data-speed="1100" data-start="1500" data-easing="Linear.easeNone" data-endspeed="500" data-endeasing="Power4.easeIn" style="z-index:3; max-width:350px; white-space: normal !important;">
+                        <div class="sld-full">
+                            <div class="sld-full-title">De Montreal’s Beach Party The Summer</div>
+                            <div class="sld-full-desc">most amazing beach party of 2015 was last night</div>
+                            <div class="sld-full-date">Thursday, 11 June 2015</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+</div>
+{% endblock %}
+{% block main_content %}
 
-        <div class="slider-boxed" style="overflow: visible;">
-            <div id="slider-right">
-                <ul>
-                    <li data-transition="fade" data-link="http://master.regress78.com/?p=35"	data-masterspeed="1500" data-delay="10000">
-                        <img src="http://master.regress78.com/wp-content/uploads/2015/05/IMG_8097-750x531.jpg" alt="slider 2" data-kenburns="on" data-duration="15000" data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100">
-                        <div class="sld-bg"></div>
-                        <div class="tp-caption" data-speed="1100" data-start="1500" data-easing="Linear.easeNone" data-endspeed="500" data-endeasing="Power4.easeIn" style="z-index:3;">
-                            <div class="sld-right">
-                                <div class="sld-title">slider 2</div>
-                                <div class="sld-desc">slider 2</div>
-                                <div class="sld-date">Суббота, 15 Октябрь 2016</div>
-                            </div><!-- end .sld-big -->
-                        </div><!-- end .tp-caption -->
-                    </li><!-- end li.slide -->
-                </ul>
-            </div><!-- end #slider-big -->
-        </div><!-- end .slider-boxed -->
-    </div>
 {% endblock %}

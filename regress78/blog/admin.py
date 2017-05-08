@@ -35,9 +35,9 @@ class BlogItemAdmin(admin.ModelAdmin):
 
 class AdvAdmin(admin.ModelAdmin):
     list_display = (
-        'event_date',
-        'event_week_day',
-        'event_location',
+        'title',
+        'description',
+        'additional',
         'adv_position',
         'pic',
         'published',
