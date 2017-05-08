@@ -1,0 +1,32 @@
+{% load thumbnail %}
+{% load l10n %}
+<div id="sidebar-right">
+    <div id="widget-event#2-2" class="widget widget_event_two">
+        <h3 class="wd-title"><span>Предстоящие события</span></h3>
+        <div id="wd-ev2">
+            {% for banner in adv %}
+            {% if banner.adv_position == 2 %}
+                <div class="wd-ev2">
+                    <div class="wd-ev2-cover">
+                        {% thumbnail banner.pic '364x194' crop='center' as thumb %}
+                            <img src="{{ thumb.url }}"/>
+                        {% endthumbnail %}
+                        <div class="wd-ev2-bg"></div>
+                        <div class="wd-ev2-title">
+                            <div class="wd-ev2-date">
+                                <div class="wd-ev2-week"><span>{{ banner.description }}</span></div>
+                                <div class="wd-ev2-dm">{{ banner.additional }}</div>
+                            </div>
+                            <h2>
+                                <a href="{{ banner.title }}">
+                                    {{ banner.title }}
+                                </a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
