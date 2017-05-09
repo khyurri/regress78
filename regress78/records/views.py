@@ -4,7 +4,23 @@ from records.models import Records
 from blog.core import paged
 
 
-class RecordView(RegressView):
+class RecordItem(RegressView):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.template_name = "records/item.html"
+
+    def get(self, request, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        page = self.c_page(**kwargs)
+        record = Records.published_items.by_id(page)
+        context.update({
+            "record": record.get(),
+        })
+        return render(request, self.template_name, context)
+
+
+class RecordList(RegressView):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

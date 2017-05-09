@@ -7,6 +7,21 @@ from blog.models import (
 )
 
 
+class Track(models.Model):
+
+    composer = models.CharField(max_length=1024,
+                                verbose_name="исполнитель")
+    song = models.CharField(max_length=1024,
+                            verbose_name="песня")
+
+    def __str__(self):
+        return self.composer + " — " + self.song
+
+    class Meta:
+        verbose_name = "композиция"
+        verbose_name_plural = "композиции"
+
+
 class Records(models.Model):
 
     published_items = ListManager()
@@ -36,9 +51,13 @@ class Records(models.Model):
     tag = models.ManyToManyField(Tag,
                                  verbose_name="теги")
 
+    track = models.ManyToManyField(Track,
+                                   verbose_name="треки")
+
     stick_on_main = models.BooleanField(verbose_name="закреплен на главной",
                                         default=False)
 
     class Meta:
-        verbose_name = "Запись эфира"
-        verbose_name_plural = "Записи эфиров"
+        verbose_name = "запись эфира"
+        verbose_name_plural = "записи эфиров"
+

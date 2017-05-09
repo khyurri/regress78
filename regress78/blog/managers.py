@@ -13,10 +13,10 @@ class ListManager(models.Manager):
         return self.get_queryset().filter(published=True,
                                           **kwargs).order_by(*order_by)
 
-    def by_id(self, topic_id, topic_type=0):
+    def by_id(self, item_id, **kwargs):
         return self.get_queryset().filter(published=True,
-                                          id=topic_id,
-                                          topic_type=topic_type)
+                                          id=item_id,
+                                          **kwargs)
 
     @staticmethod
     def increment_view(blog_item):

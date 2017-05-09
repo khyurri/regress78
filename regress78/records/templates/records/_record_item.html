@@ -5,11 +5,10 @@
 <div class="mix-cover">
     <div class="mix-bg"></div>
     {% thumbnail topic.pic '200x120' crop='center' as thumb %}
-    <img src="{{ thumb.url }}" alt="Obsession Ibiza Global Radio Mixtape Summer 2015" />
+        <img src="{{ thumb.url }}" alt="{{ topic.title }}"/>
     {% endthumbnail %}
     <a target="_blank"
        href="{{ topic.record_url }}" class="fap-single-track mix-play no-ajax"></a>
-    <!-- {{ topic }} -->
 </div>
 <div class="mix-title">
     <h2>

@@ -1,0 +1,41 @@
+{% extends 'common/inner_layout.html' %}
+{% load thumbnail %}
+{% block main_content %}
+    <div id="sng-left">
+        <div id="sng" class="fixed">
+            <div class="mixsng-title">
+                <h1>{{ record.title }}</h1>
+            </div>
+            <div class="mediasng-lv">
+                <a href="#" id="getlike" class="info-liked" data-post_id="310" title="Unlike">94</a>
+                <div class="info-view">2660</div>
+            </div>
+            <div class="mediasng-info">
+                {% for dj in record.dj.all %}
+                    <div class="mediasng-artist">{{ dj }}</div>
+                {% endfor %}
+            </div>
+            <div class="mixsng-cover">
+                {% thumbnail record.pic '270x264' crop='center' as thumb %}
+                    <img src="{{ thumb.url }}" alt="{{ record.title }}"/>
+                {% endthumbnail %}
+                <a target="_blank"
+                   href="{{ record.record_url }}" class="fap-single-track mixsng-play no-ajax"></a>
+            </div>
+            <div id="mixsng-tracklist">
+                <ul class="tracklist">
+                    {% for track in record.track.all %}
+                        <li><span>{{ track }}</span></li>
+                    {% endfor %}
+                </ul>
+                <div class="mixsng-social">
+                    <span>share</span>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=regress78.com{{request.get_full_path}}" target="_blank"><div class="sng-facebook"></div></a>
+                    <a href="https://twitter.com/home?status=regress78.com{{request.get_full_path}}" target="_blank"><div class="sng-twitter"></div></a>
+                    <a href="https://plus.google.com/share?url=regress78.com{{request.get_full_path}}" target="_blank"><div class="sng-google"></div></a>
+                    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=regress78.com{{request.get_full_path}}" target="_blank"><div class="sng-linkedin"></div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

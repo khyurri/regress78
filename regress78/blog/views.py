@@ -44,7 +44,7 @@ class BlogTopic(RegressView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
-        blog_item = BlogItem.published_items.by_id(args[0])
+        blog_item = BlogItem.published_items.by_id(args[0], topic_type=0)
         context.update({
             "topic": blog_item.get()
         })

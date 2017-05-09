@@ -3,6 +3,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from filebrowser.sites import site as filebrowser_site
 from index.views import IndexView
+from django.conf import settings
 from blog.views import (
     BlogList,
     BlogTopic,
@@ -13,8 +14,10 @@ from photo.views import (
     PhotoList,
     PhotoGallery,
 )
-from django.conf import settings
-from records.views import RecordView
+from records.views import (
+    RecordList,
+    RecordItem,
+)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,7 +34,9 @@ urlpatterns = [
                                             "detail_item_uri": "/event/date/"}),
     url(r'^event/date/(?P<id>[0-9]+)/', LightItem.as_view(), {"name": 'event_item',
                                                               "topic_type": 1}),
-    url(r'^records/$', RecordView.as_view())
+    url(r'^records/$', RecordList.as_view()),
+    url(r'^records/(?P<page>[0-9]+)/$', RecordList.as_view()),
+    url(r'^record/([0-9]+)/$', RecordItem.as_view()),
 ]
 
 if settings.DEBUG:
