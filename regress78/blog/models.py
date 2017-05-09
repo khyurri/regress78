@@ -109,6 +109,9 @@ class BlogItem(models.Model):
     stick_on_main = models.BooleanField(verbose_name="закреплен на главной",
                                         default=False)
 
+    stick_on_sidebar = models.BooleanField(verbose_name="закреплен в сайдбаре",
+                                           default=False)
+
     def __str__(self):
         return self.title
 

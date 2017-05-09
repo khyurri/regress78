@@ -29,7 +29,8 @@ class BlogItemAdmin(admin.ModelAdmin):
         'position',
         'preview',
         'hits',
-        'creator'
+        'creator',
+        'stick_on_sidebar',
     )
 
 
