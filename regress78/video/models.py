@@ -1,8 +1,11 @@
 from django.db import models
 from commons.core import UploadTo
+from blog.managers import ListManager
 
 
 class Video(models.Model):
+
+    published_items = ListManager()
 
     title = models.CharField("название", max_length=255)
     video_url = models.CharField("ссылка на видео файл", max_length=10240)

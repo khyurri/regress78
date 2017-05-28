@@ -42,8 +42,8 @@ urlpatterns = [
     url(r'^records/(?P<page>[0-9]+)/$', RecordList.as_view()),
     url(r'^record/([0-9]+)/$', RecordItem.as_view()),
 
-    url(r'^video/$', VideoList.as_view()),
-    url(r'^video/(?P<page>[0-9]+)/$', VideoList.as_view()),
+    url(r'^videos/$', VideoList.as_view()),
+    url(r'^videos/(?P<page>[0-9]+)/$', VideoList.as_view()),
     url(r'^video/([0-9]+)/$', VideoItem.as_view()),
 ]
 

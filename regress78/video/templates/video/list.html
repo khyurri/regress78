@@ -1,9 +1,13 @@
 {% extends 'common/inner_layout.html' %}
-{% load thumbnail %}
 {% block main_content %}
+    <div class="page-title">
+        <h1 class="blog">Видео</h1>
+    </div>
     <div class="media-left">
         <div class="media-lr">
-
+            {% for topic in list.object_list %}
+                {% include "video/_video_item.html" %}
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

@@ -3,19 +3,21 @@
     <div class="pv2">
         <div class="pv2-cover">
             <div class="he-wrap he-wize">
-                <img src="http://master.regress78.com/wp-content/uploads/2015/05/Hideout_2014_day-60_foto_Marko_Delbello_Ocepek-360x300.jpg" alt="Friends Boat Party @ Hideout, Isle of Pag">
+                {% thumbnail topic.pic '364x300' crop='center' as thumb %}
+                    <img src="{{ thumb.url }}" alt="{{ topic.title }}">
+                {% endthumbnail %}
                 <div class="he-view">
                     <div class="bgmedia a0" data-animate="zoomIn">
+                        <a href="{{ topic.video_url }}" class="pv2-video a2"></a>
                         <div class="pv2-lv">
-                            <a href="#" id="getlike" class="info-like" data-post_id="293" title="Like">Like</a>
-                            <div class="info-view">20</div>
+                            <div class="info-view">{{ topic.hits }}</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="pv2-info">
                 <div class="pv2-title">
-                    <h2><a href="http://master.regress78.com/?video=friends-boat-party-hideout-isle-of-pag">Friends Boat Party @ Hideout, Isle of Pag</a></h2>
+                    <h2><a href="/video/{{ topic.id }}/">{{ topic.title }}</a></h2>
                 </div>
             </div>
         </div>
