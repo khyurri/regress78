@@ -10,6 +10,15 @@ class VideoItem(RegressView):
         super().__init__(*args, **kwargs)
         self.template_name = "video/item.html"
 
+    def get(self, request, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        page = self.c_page(**kwargs)
+        video = Video.published_items.by_id(page)
+        context.update({
+            "video": video.get(),
+        })
+        return render(request, self.template_name, context)
+
 
 class VideoList(RegressView):
 
