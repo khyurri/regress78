@@ -1,0 +1,25 @@
+{% extends 'common/inner_layout.html' %}
+{% load thumbnail %}
+{% block main_content %}
+    <div id="mediasng">
+        <div class="mediasng-title">
+            <h1>{{ video.title }}</h1>
+        </div>
+        <div class="mediasng-lv">
+            <div class="info-view">{{ video.hits }}</div>
+        </div>
+        <div class="mediasng-info">
+            <div class="mediasng-date">{{ video.date_published }}</div>
+        </div>
+        {% thumbnail video.pic '1130x620' crop='center' as thumb %}
+            <img src="{{ thumb.url }}" alt="{{ topic.title }}">
+        {% endthumbnail %}
+        <div class="mediasng-social">
+            <span>share</span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://beaton.wizedesign.com/video/friends-boat-party-hideout-isle-of-pag/" target="_blank"><div class="sng-facebook"></div></a>
+            <a href="https://twitter.com/home?status=http://beaton.wizedesign.com/video/friends-boat-party-hideout-isle-of-pag/" target="_blank"><div class="sng-twitter"></div></a>
+            <a href="https://plus.google.com/share?url=http://beaton.wizedesign.com/video/friends-boat-party-hideout-isle-of-pag/" target="_blank"><div class="sng-google"></div></a>
+            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://beaton.wizedesign.com/video/friends-boat-party-hideout-isle-of-pag/" target="_blank"><div class="sng-linkedin"></div></a>
+        </div>
+    </div>
+{% endblock %}

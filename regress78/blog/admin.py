@@ -30,7 +30,6 @@ class BlogItemAdmin(admin.ModelAdmin):
         'preview',
         'hits',
         'creator',
-        'stick_on_sidebar',
     )
 
 

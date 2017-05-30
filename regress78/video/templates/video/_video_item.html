@@ -1,0 +1,24 @@
+{% load thumbnail %}
+{% load l10n %}
+    <div class="pv2">
+        <div class="pv2-cover">
+            <div class="he-wrap he-wize">
+                {% thumbnail topic.pic '364x300' crop='center' as thumb %}
+                    <img src="{{ thumb.url }}" alt="{{ topic.title }}">
+                {% endthumbnail %}
+                <div class="he-view">
+                    <div class="bgmedia a0" data-animate="zoomIn">
+                        <a href="{{ topic.video_url }}" class="pv2-video a2"></a>
+                        <div class="pv2-lv">
+                            <div class="info-view">{{ topic.hits }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pv2-info">
+                <div class="pv2-title">
+                    <h2><a href="/video/{{ topic.id }}/">{{ topic.title }}</a></h2>
+                </div>
+            </div>
+        </div>
+    </div>

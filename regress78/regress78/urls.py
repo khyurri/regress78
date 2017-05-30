@@ -18,6 +18,10 @@ from records.views import (
     RecordList,
     RecordItem,
 )
+from video.views import (
+    VideoList,
+    VideoItem,
+)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -37,6 +41,10 @@ urlpatterns = [
     url(r'^records/$', RecordList.as_view()),
     url(r'^records/(?P<page>[0-9]+)/$', RecordList.as_view()),
     url(r'^record/([0-9]+)/$', RecordItem.as_view()),
+
+    url(r'^videos/$', VideoList.as_view()),
+    url(r'^videos/(?P<page>[0-9]+)/$', VideoList.as_view()),
+    url(r'^video/([0-9]+)/$', VideoItem.as_view()),
 ]
 
 if settings.DEBUG:

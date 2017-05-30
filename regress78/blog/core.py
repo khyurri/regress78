@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator
 from django.conf import settings
+from blog.models import BlogItem
 from blog.models import (
     TopMenu,
     Adv,
@@ -8,6 +9,10 @@ from blog.models import (
 
 def fetch_menu():
     return TopMenu.objects.filter(parent__isnull=True).order_by('order')
+
+
+def fetch_stick_topics():
+    return BlogItem.published_items.list_items(stick_on_sidebar=True)
 
 
 def fetch_adv():

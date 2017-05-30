@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from blog.core import (
     fetch_menu,
     fetch_adv,
+    fetch_stick_topics,
 )
 from django.conf import settings
 
@@ -20,6 +21,7 @@ class RegressView(TemplateView):
             'title': "Regress78",
             'main_menu': fetch_menu(),
             'adv': fetch_adv(),
+            'topic_stick_on_sidebar': fetch_stick_topics(),
             'media_path': settings.MEDIA_URL,
         })
         return context
