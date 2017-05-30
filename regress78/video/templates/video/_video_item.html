@@ -3,17 +3,33 @@
     <div class="pv2">
         <div class="pv2-cover">
             <div class="he-wrap he-wize">
-                {% thumbnail topic.pic '364x300' crop='center' as thumb %}
-                    <img src="{{ thumb.url }}" alt="{{ topic.title }}">
-                {% endthumbnail %}
-                <div class="he-view">
+                {% if False %}
+                    {% thumbnail topic.pic '364x300' crop='center' as thumb %}
+                        <img src="{{ thumb.url }}" alt="{{ topic.title }}">
+                    {% endthumbnail %}
+                {% endif %}
+                {% if False %}
                     <div class="bgmedia a0" data-animate="zoomIn">
                         <a href="{{ topic.video_url }}" class="pv2-video a2"></a>
                         <div class="pv2-lv">
                             <div class="info-view">{{ topic.hits }}</div>
                         </div>
                     </div>
-                </div>
+                {% else %}
+                    {% thumbnail topic.pic '364x300' crop='center' as thumb %}
+                        <video id="regress78_video_{{topic.id}}"
+                               class="video-js vjs-big-play-centered"
+                               controls preload="auto" width="364" height="300"
+                          poster="{{ thumb.url }}" data-setup="{}">
+                            <source src="{{ topic.video_url_mp4 }}" type='video/mp4'>
+                            <source src="{{ topic.video_url_webm }}" type='video/webm'>
+                            <p class="vjs-no-js">
+                              To view this video please enable JavaScript, and consider upgrading to a web browser that
+                              <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                            </p>
+                          </video>
+                      {% endthumbnail %}
+                {% endif %}
             </div>
             <div class="pv2-info">
                 <div class="pv2-title">

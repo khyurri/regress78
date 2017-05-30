@@ -51,6 +51,10 @@
     <script type='text/javascript' src='{% static 'blog/js/lib/soundmanager.js' %}'></script>
     <script type='text/javascript' src='{% static 'blog/js/lib/jquery-history.js' %}'></script>
     <script type='text/javascript' src='{% static 'blog/js/lib/ajax.js' %}'></script>
+
+    <!-- REGRESS CUSTOMS -->
+    <link href="http://vjs.zencdn.net/5.19.2/video-js.css" rel="stylesheet">
+
 </head>
 <body class="home page page-id-42 page-template-default responsive-menu-slide-left">
     <div id="header">
@@ -94,6 +98,7 @@
             $.backstretch("{% static 'blog/images/background.png' %}");
         });
     </script>
+    <script type='text/javascript' src="{% static 'blog/js/lib/moment.min.js' %}"></script>
     <script type='text/javascript' src="{% static 'blog/js/post-like.js' %}"></script>
     <script type='text/javascript' src="{% static 'blog/js/responsive-menu-1.js' %}"></script>
     <script type='text/javascript' src="{% static 'blog/js/add-to-cart.min.js' %}"></script>
@@ -117,4 +122,9 @@
     <script type='text/javascript' src="{% static 'blog/js/script.js' %}"></script>
     <script type='text/javascript' src="{% static 'blog/js/comment-reply.min.js' %}"></script>
     <script type='text/javascript' src="{% static 'blog/js/wp-embed.min.js' %}"></script>
+
+    <!-- REGRESS CUSTOMS -->
+    <script src="http://vjs.zencdn.net/5.19.2/video.js"></script>
+    <script type='text/javascript' src="{% static 'blog/js/regress/decorators.js' %}"></script>
+    <script type='text/javascript' src="{% static 'blog/js/regress/video.js' %}"></script>
 </body>
